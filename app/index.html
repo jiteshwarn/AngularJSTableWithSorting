@@ -7,42 +7,19 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/angularjs/angular.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/controller/script.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/services/tableData.js"></script>
+  <script src="js/directive/customTable.js"></script>
+  <script src="js/controller/tableController.js"></script>
+
 </head>
 
 <body data-ng-controller="MainCtrl as vm">
-  <table ng-table="vm.tableParams" class="table"  show-filter="true">
-    <tr ng-repeat="user in $data">
-      <td title="'ID'" filter="{ id: 'number'}" sortable="'id'">
-        {{user.id}}</td>
-      <td title="'Title'" filter="{ title: 'text'}" sortable="'title'">
-        <a href="" ng-click="vm.getDetails(user)" data-toggle="modal" data-target="#myModal">{{user.title}}</a></td>
-      <td title="'Body'" filter="{ body: 'text'}" sortable="'body'">
-        {{user.body}}</td>
-    </tr>
-  </table>
-    <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Description</h4>
-                </div>
-                <div class="modal-body">
-                  <h4>Title</h4><p>{{vm.title}}</p>
-                  <h4>Body</h4><p>{{vm.body}}</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-        </div>
-    </div>
+  <div>
+  <custom-table></custom-table>
+  </div>
     
 </body>
-
 </html>
